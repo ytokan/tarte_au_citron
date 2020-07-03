@@ -1,0 +1,6 @@
+name = tarte_au_citron_gtag
+description = Gtag plugin for Tarte au citron module
+package = Tarte au citron | Customs
+core = 7.x
+dependencies[] = tarte_au_citron
+

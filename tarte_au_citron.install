@@ -1,0 +1,9 @@
+<?php
+
+/**
+ * Implements hook_uninstall().
+ */
+function tarte_au_citron_uninstall() {
+  variable_del('tarte_au_citron');
+  variable_del('tarte_au_citron_texts');
+}

@@ -1,0 +1,33 @@
+<?php
+
+function tarte_au_citron_googletagmanager_ctools_plugin_directory($module, $plugin) {
+  if ($module == 'tarte_au_citron' && in_array($plugin, array_keys(tarte_au_citron_ctools_plugin_type())) ) {
+    return 'plugins/' . $plugin;
+  }
+}
+
+/**
+ * Implements hook_module_implements_alter().
+ */
+function tarte_au_citron_googletagmanager_module_implements_alter(&$implementations, $hook) {
+  if ($hook === 'page_build' && isset($implementations['google_tag']) && tarte_au_citron_is_plugin_enabled('googletagmanager')) {
+    unset($implementations['google_tag']);
+  }
+}
+
+
+/**
+ * Implements hook_preprocess_page().
+ *
+ * Adds the snippet to the page array if the insertion conditions are met.
+ *
+ */
+function tarte_au_citron_googletagmanager_preprocess_page(&$variables) {
+  module_load_include('inc', 'tarte_au_citron_googletagmanager', 'includes/entity/manager');
+
+  $manager = \TarteAuCitronGTMContainerManager::getInstance();
+  $manager->getScriptAttachments($variables['page']);
+  $manager->getNoScriptAttachments($variables['page']);
+
+}
+

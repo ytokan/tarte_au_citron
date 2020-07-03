@@ -1,0 +1,7 @@
+name = tarte_au_citron_addtoany
+description = Add to any plugin for Tarte au citron module
+package = Tarte au citron | Customs
+core = 7.x
+dependencies[] = tarte_au_citron
+dependencies[] = addtoany
+

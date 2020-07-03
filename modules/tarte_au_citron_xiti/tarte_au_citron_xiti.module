@@ -1,0 +1,8 @@
+<?php
+
+
+function tarte_au_citron_xiti_ctools_plugin_directory($module, $plugin) {
+  if ($module == 'tarte_au_citron' && in_array($plugin, array_keys(tarte_au_citron_ctools_plugin_type())) ) {
+    return 'plugins/' . $plugin;
+  }
+}

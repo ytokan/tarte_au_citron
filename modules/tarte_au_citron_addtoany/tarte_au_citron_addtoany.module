@@ -1,0 +1,30 @@
+<?php
+
+
+function tarte_au_citron_addtoany_ctools_plugin_directory($module, $plugin) {
+  if ($module == 'tarte_au_citron' && in_array($plugin, array_keys(tarte_au_citron_ctools_plugin_type())) ) {
+    return 'plugins/' . $plugin;
+  }
+}
+
+function tarte_au_citron_addtoany_page_alter(&$page) {
+  // Remove JS part where page.js is loaded from addtoany
+  if (tarte_au_citron_is_plugin_enabled('addtoany') && !empty($page["content"]["#attached"]["js"])) {
+    foreach ($page["content"]["#attached"]["js"] as $key => $js) {
+      if (!empty($js['data']) && strpos($js['data'], "a2a")){
+        //remove function which load add2any js
+        //load will be done by tarte au citron service (see tarte_au_citron_addtoany.js)
+        $replaceString = "script_load:function(){"
+          . "var a=document.createElement('script'),"
+          . "s=document.getElementsByTagName('script')[0];"
+          . "a.type='text/javascript';a.async=true;"
+          . "a.src='https://static.addtoany.com/menu/page.js';"
+          . "s.parentNode.insertBefore(a,s);"
+          . "da2a.script_load=function(){};"
+          . "},";
+        $replaceString = preg_quote($replaceString, '/');
+        $page["content"]["#attached"]["js"][$key] = preg_replace('/' . $replaceString . '/i', 'script_load:function(){},', $page["content"]["#attached"]["js"][$key]);
+      }
+    }
+  }
+}

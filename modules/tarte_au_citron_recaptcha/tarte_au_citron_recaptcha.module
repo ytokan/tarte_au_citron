@@ -1,0 +1,16 @@
+<?php
+
+function tarte_au_citron_recaptcha_ctools_plugin_directory($module, $plugin) {
+  if ($module == 'tarte_au_citron' && in_array($plugin, array_keys(tarte_au_citron_ctools_plugin_type())) ) {
+    return 'plugins/' . $plugin;
+  }
+}
+
+/**
+ * Implements hook_html_head_alter().
+ */
+function tarte_au_citron_recaptcha_html_head_alter(&$head_elements) {
+  if(tarte_au_citron_is_plugin_enabled('drupal_recaptcha') && isset($head_elements['recaptcha_api'])) {
+    unset($head_elements['recaptcha_api']);
+  }
+}

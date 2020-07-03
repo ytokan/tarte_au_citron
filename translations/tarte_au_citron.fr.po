@@ -1,0 +1,546 @@
+# $Id$
+#
+# French translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  tarte_au_citron.admin.settings.inc: n/a
+#  tarte_au_citron.admin.translate.inc: n/a
+#  tarte_au_citron.module: n/a
+#  tarte_au_citron.info: n/a
+#  modules/tarte_au_citron_damdy/tarte_au_citron_damdy.info: n/a
+#  modules/tarte_au_citron_googletagmanager/tarte_au_citron_googletagmanager.info: n/a
+#  modules/tarte_au_citron_gtag/tarte_au_citron_gtag.info: n/a
+#  modules/tarte_au_citron_xiti/tarte_au_citron_xiti.info: n/a
+#  modules/tarte_au_citron_damdy/plugins/tarte_au_citron/damdy.inc: n/a
+#  modules/tarte_au_citron_add_to_any_facebook/plugins/tarte_au_citron/add_to_any_facebook.inc: n/a
+#  modules/tarte_au_citron_gtag/plugins/tarte_au_citron/gtag.inc: n/a
+#  modules/tarte_au_citron_xiti/plugins/tarte_au_citron/xiti.inc: n/a
+#  modules/tarte_au_citron_googletagmanager/plugins/tarte_au_citron/googletagmanager.inc: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2020-05-12 13:28+0200\n"
+"PO-Revision-Date: 2020-05-12 13:28+0200\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: French <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n>1);\n"
+
+#: tarte_au_citron.admin.settings.inc:34
+msgid "Parameters"
+msgstr "Paramètres"
+
+#: tarte_au_citron.admin.settings.inc:38
+msgid "Open the panel with this hashtag."
+msgstr "Ouvre le panneau avec ce hashtag."
+
+#: tarte_au_citron.admin.settings.inc:44
+msgid "Cookie Name"
+msgstr "Nom du cookie"
+
+#: tarte_au_citron.admin.settings.inc:45
+msgid "Cookie name."
+msgstr "Nom du cookie."
+
+#: tarte_au_citron.admin.settings.inc:51
+msgid "Orientation"
+msgstr "Orientation"
+
+#: tarte_au_citron.admin.settings.inc:52
+msgid "Banner position (top - middle - bottom)."
+msgstr "Position de la banière (haut - centre - bas)"
+
+#: tarte_au_citron.admin.settings.inc:55
+msgid "Top"
+msgstr "Haut"
+
+#: tarte_au_citron.admin.settings.inc:56
+msgid "Middle"
+msgstr "Centre"
+
+#: tarte_au_citron.admin.settings.inc:57
+msgid "Bottom"
+msgstr "Bas"
+
+#: tarte_au_citron.admin.settings.inc:65
+msgid "Checkboxes"
+msgstr "Cases à cocher"
+
+#: tarte_au_citron.admin.settings.inc:70
+msgid "Show alert small"
+msgstr "Afficher la petite alerte"
+
+#: tarte_au_citron.admin.settings.inc:71
+msgid "Show the small banner on bottom right."
+msgstr "Afficher la petite banière en bas à droite."
+
+#: tarte_au_citron.admin.settings.inc:77
+msgid "Cookies list"
+msgstr "Liste des cookies"
+
+#: tarte_au_citron.admin.settings.inc:78
+msgid "Show the cookie list."
+msgstr "Afficher la liste des cookies."
+
+#: tarte_au_citron.admin.settings.inc:85
+msgid "Show a Warning if an adblocker is detected."
+msgstr "Afficher une alerte si un bloqueur de publicité est détecté"
+
+#: tarte_au_citron.admin.settings.inc:92
+msgid "Accept All Cta"
+msgstr "Bouton Accepter tout"
+
+#: tarte_au_citron.admin.settings.inc:93
+msgid "Show the accept all button when high Privacy on."
+msgstr ""
+"Afficher le bouton Accepter tout quand la confidentialité élevée "
+"est activée."
+
+#: tarte_au_citron.admin.settings.inc:99
+msgid "High Privacy"
+msgstr "Confidentialité élevée"
+
+#: tarte_au_citron.admin.settings.inc:100
+msgid "Disable auto consent."
+msgstr "Désactiver l'auto consentement"
+
+#: tarte_au_citron.admin.settings.inc:106
+msgid "Handle browser do not track request"
+msgstr "Charger le navigateur de ne pas traquer les requêtes"
+
+#: tarte_au_citron.admin.settings.inc:107
+msgid "If Do Not Track == 1, disallow all."
+msgstr "Si 'Ne pas traquer' == 1, désactiver tout."
+
+#: tarte_au_citron.admin.settings.inc:113
+msgid "Remove credit"
+msgstr "Supprimer les crédits"
+
+#: tarte_au_citron.admin.settings.inc:114
+msgid "Remove credit link."
+msgstr "Supprimer le lien vers les crédits."
+
+#: tarte_au_citron.admin.settings.inc:120
+msgid "More info link"
+msgstr "Lien Plus d'infos"
+
+#: tarte_au_citron.admin.settings.inc:121
+msgid "Show more info link."
+msgstr "Afficher le lien Plus d'infos."
+
+#: tarte_au_citron.admin.settings.inc:127
+msgid "Use external css"
+msgstr "Utiliser un css externe"
+
+#: tarte_au_citron.admin.settings.inc:128
+msgid "If not checked, the tarteaucitron.css file will be loaded. If you want to customize the appearance of tarte au citron component, add your own css file based on tarteaucitron.css in a module or theme."
+msgstr ""
+"Si non coché, le fichier tarteaucitron.css sera chargé. Si vous "
+"voulez customiser l'appararence de tarte au citron, ajouter votre "
+"propre css basé sur tarteaucitron.css dans un module ou un thème."
+
+#: tarte_au_citron.admin.settings.inc:134
+msgid "Privacy Url"
+msgstr "Url de la politique de confidentialité"
+
+#: tarte_au_citron.admin.settings.inc:135
+msgid "Privacy policy."
+msgstr "Politique de confidentialité."
+
+#: tarte_au_citron.admin.settings.inc:137
+msgid "relative path to privacy policy"
+msgstr "Chemin relatif vers la politique de confidentialité"
+
+#: tarte_au_citron.admin.settings.inc:142
+msgid "Read more link"
+msgstr "Lien En savoir plus"
+
+#: tarte_au_citron.admin.settings.inc:143
+msgid "Change the default readmore link."
+msgstr "modifier le lien en savoir plus par défaut."
+
+#: tarte_au_citron.admin.settings.inc:149
+msgid "Cookie Domain"
+msgstr "Domaine du cookie"
+
+#: tarte_au_citron.admin.settings.inc:150
+msgid "Shared cookie for multisite."
+msgstr "Cookie partagé pour le multisite."
+
+#: tarte_au_citron.admin.settings.inc:158
+msgid "Services"
+msgstr "Services"
+
+#: tarte_au_citron.admin.settings.inc:164
+msgid "Services enabled"
+msgstr "Services activés"
+
+#: tarte_au_citron.admin.settings.inc:165
+msgid "Services enabled."
+msgstr "Services activés."
+
+#: tarte_au_citron.admin.settings.inc:174
+msgid "Services settings"
+msgstr "Paramétrage des services"
+
+#: tarte_au_citron.admin.settings.inc:221 tarte_au_citron.admin.translate.inc:153
+msgid "Save"
+msgstr "Enregistrer"
+
+#: (duplicate) tarte_au_citron.admin.settings.inc:252
+msgid "!name field is required."
+msgstr "Le champ !name est requis."
+
+#: tarte_au_citron.admin.translate.inc:5
+msgid "☝ 🍪"
+msgstr "☝ 🍪"
+
+#: tarte_au_citron.admin.translate.inc:6
+msgid "Hello! This site is transparent and lets you chose the 3rd party services you want to allow."
+msgstr ""
+"Bonjour! Ce site joue la transparence et vous donne le choix des "
+"services tiers à activer."
+
+#: tarte_au_citron.admin.translate.inc:7
+msgid "Please disable your adblocker to start customizing."
+msgstr ""
+"Merci de désactiver votre adblocker pour commencer la "
+"personnalisation."
+
+#: tarte_au_citron.admin.translate.inc:8
+msgid "Refresh the page"
+msgstr "Recharger la page"
+
+#: tarte_au_citron.admin.translate.inc:9
+msgid "By continuing to scroll,"
+msgstr "En continuant de défiler,"
+
+#: tarte_au_citron.admin.translate.inc:10
+msgid "If you continue to browse this website,"
+msgstr "En poursuivant votre navigation,"
+
+#: tarte_au_citron.admin.translate.inc:11
+msgid "you are allowing all third-party services"
+msgstr ""
+"vous acceptez l'utilisation de services tiers pouvant installer des "
+"cookies"
+
+#: tarte_au_citron.admin.translate.inc:12
+msgid "This site uses cookies and gives you control over what you want to activate"
+msgstr ""
+"Ce site utilise des cookies et vous donne le contrôle sur ce que vous "
+"souhaitez activer"
+
+#: tarte_au_citron.admin.translate.inc:13
+msgid "Manage services"
+msgstr "Gestion des services"
+
+#: tarte_au_citron.admin.translate.inc:14
+msgid "Personalize"
+msgstr "Personnaliser"
+
+#: tarte_au_citron.admin.translate.inc:15
+msgid "OK, accept all"
+msgstr "OK, tout accepter"
+
+#: tarte_au_citron.admin.translate.inc:16
+msgid "Close"
+msgstr "Fermer"
+
+#: tarte_au_citron.admin.translate.inc:17
+msgid "Privacy policy"
+msgstr "Politique de confidentialité"
+
+#: tarte_au_citron.admin.translate.inc:18
+msgid "Preference for all services"
+msgstr "Préférences pour tous les services"
+
+#: tarte_au_citron.admin.translate.inc:19
+msgid "Protecting your privacy"
+msgstr "Protection de votre vie privée"
+
+#: tarte_au_citron.admin.translate.inc:20
+msgid "By allowing these third party services, you accept their cookies and the use of tracking technologies necessary for their proper functioning."
+msgstr ""
+"En autorisant ces services tiers, vous acceptez le dépôt et la "
+"lecture de cookies et l'utilisation de technologies de suivi "
+"nécessaires à leur bon fonctionnement."
+
+#: tarte_au_citron.admin.translate.inc:21
+msgid "Allow"
+msgstr "Autoriser"
+
+#: tarte_au_citron.admin.translate.inc:22
+msgid "Deny"
+msgstr "Interdire"
+
+#: tarte_au_citron.admin.translate.inc:23
+msgid "This service does not use cookie."
+msgstr "Ce service ne dépose aucun cookie."
+
+#: tarte_au_citron.admin.translate.inc:24
+msgid "This service can install"
+msgstr "Ce service peut déposer"
+
+#: tarte_au_citron.admin.translate.inc:25
+msgid "This service has installed"
+msgstr "Ce service a déposé"
+
+#: tarte_au_citron.admin.translate.inc:26
+msgid "This service has not installed any cookie."
+msgstr "Ce service n'a déposé aucun cookie."
+
+#: tarte_au_citron.admin.translate.inc:27
+msgid "Read more"
+msgstr "En savoir plus"
+
+#: tarte_au_citron.admin.translate.inc:28
+msgid "View the official website"
+msgstr "Voir le site officiel"
+
+#: tarte_au_citron.admin.translate.inc:29
+msgid "Cookies manager by tarteaucitron.js"
+msgstr "Gestion des cookies par tarteaucitron.js"
+
+#: tarte_au_citron.admin.translate.inc:30
+msgid "This website does not use any cookie requiring your consent."
+msgstr "Ce site n'utilise aucun cookie nécessitant votre consentement."
+
+#: tarte_au_citron.admin.translate.inc:31
+msgid "Show/hide informations about cookie storage"
+msgstr "Afficher/masquer les informations sur le stockage des cookies"
+
+#: tarte_au_citron.admin.translate.inc:32
+msgid "Cookies management panel"
+msgstr "Panneau de gestion des cookies"
+
+#: tarte_au_citron.admin.translate.inc:33
+msgid "Cookie detail for"
+msgstr "Détail des cookies"
+
+#: tarte_au_citron.admin.translate.inc:34
+msgid "on our site"
+msgstr "sur notre site"
+
+#: tarte_au_citron.admin.translate.inc:35
+msgid "(new window)"
+msgstr "(nouvelle fenêtre)"
+
+#: tarte_au_citron.admin.translate.inc:36
+msgid "Allow all cookies"
+msgstr "Autoriser tous les cookies"
+
+#: tarte_au_citron.admin.translate.inc:37
+msgid "Deny all cookies"
+msgstr "Interdire tous les cookies"
+
+#: tarte_au_citron.admin.translate.inc:38
+msgid "is disabled."
+msgstr "est désactivé."
+
+#: tarte_au_citron.admin.translate.inc:40
+msgid "Advertising network"
+msgstr "Régies publicitaires"
+
+#: tarte_au_citron.admin.translate.inc:41
+msgid "Ad networks can generate revenue by selling advertising space on the site."
+msgstr ""
+"Les régies publicitaires permettent de générer des revenus en "
+"commercialisant les espaces publicitaires du site."
+
+#: tarte_au_citron.admin.translate.inc:44
+msgid "Audience measurement"
+msgstr "Mesure d'audience"
+
+#: tarte_au_citron.admin.translate.inc:45
+msgid "The audience measurement services used to generate useful statistics attendance to improve the site."
+msgstr ""
+"Ces cookies permettent de générer des statistiques anonymes de fréquentation du site via AT Internet (le nombre de visites, les pages les plus vues, etc.). "
+"Ces données contribuent à identifier d'éventuels dysfonctionnements sur le site et à améliorer la qualité de nos services."
+
+#: tarte_au_citron.admin.translate.inc:48
+msgid "Social networks"
+msgstr "Réseaux sociaux"
+
+#: tarte_au_citron.admin.translate.inc:49
+msgid "Social networks can improve the usability of the site and help to promote it via the shares."
+msgstr ""
+"Les réseaux sociaux permettent d'améliorer la convivialité du site "
+"et aident à sa promotion via les partages."
+
+#: tarte_au_citron.admin.translate.inc:52
+msgid "Videos"
+msgstr "Vidéos"
+
+#: tarte_au_citron.admin.translate.inc:53
+msgid "Video sharing services help to add rich media on the site and increase its visibility."
+msgstr ""
+"Les services de partage de vidéo permettent d'enrichir le site de "
+"contenu multimédia et augmentent sa visibilité."
+
+#: tarte_au_citron.admin.translate.inc:56
+msgid "Comments"
+msgstr "Commentaires"
+
+#: tarte_au_citron.admin.translate.inc:57
+msgid "Comments managers facilitate the filing of comments and fight against spam."
+msgstr ""
+"Les gestionnaires de commentaires facilitent le dépôt de vos "
+"commentaires et luttent contre le spam."
+
+#: tarte_au_citron.admin.translate.inc:60
+msgid "Support"
+msgstr "Support"
+
+#: tarte_au_citron.admin.translate.inc:61
+msgid "Support services allow you to get in touch with the site team and help to improve it."
+msgstr ""
+"Les services de support vous permettent d'entrer en contact avec "
+"l'équipe du site et d'aider à son amélioration."
+
+#: tarte_au_citron.admin.translate.inc:64
+msgid "APIs"
+msgstr "APIs"
+
+#: tarte_au_citron.admin.translate.inc:65
+msgid "APIs are used to load scripts: geolocation, search engines, translations, ..."
+msgstr ""
+"Les APIs permettent de charger des scripts : géolocalisation, moteurs "
+"de recherche, traductions, ..."
+
+#: tarte_au_citron.admin.translate.inc:68
+msgid "Other"
+msgstr "Autre"
+
+#: tarte_au_citron.admin.translate.inc:69
+msgid "Services to display web content."
+msgstr "Services visant à afficher du contenu web."
+
+#: tarte_au_citron.admin.translate.inc:75
+msgid "@name is disabled."
+msgstr "@name est désactivé"
+
+#: tarte_au_citron.admin.translate.inc:92
+msgid "<b>Important, you need to use english</b> and then translate the text on the !translate page.<br>"
+msgstr ""
+"<b>Important, vous devez utiliser de l'anglais</b> et traduire le "
+"texte depuis la page !translate.<br>"
+
+#: tarte_au_citron.admin.translate.inc:92
+msgid "User interface translation"
+msgstr "Interface de traduction utilisateur"
+
+#: tarte_au_citron.admin.translate.inc:96
+msgid "Enter the text that will be presented to your website users. The same text is used in both the cookie declaration and the consent dialog."
+msgstr ""
+"Entrer le texte qui sera présenté à vos utilisateurs. Le même "
+"texte sera utilisé dans la déclaration des cookies et dans la "
+"fenêtre de consentement."
+
+#: tarte_au_citron.admin.translate.inc:159
+msgid "Clear Tarte au citon translation cache"
+msgstr "Supprimer le cache de traduction de Tarte au citron"
+
+#: tarte_au_citron.module:45
+msgid "Bypass tarte au citron"
+msgstr "Outrepasser tarte au citron"
+
+#: tarte_au_citron.module:48
+msgid "Translate tarte au citron"
+msgstr "Traduire tarte au citron"
+
+#: tarte_au_citron.module:11 tarte_au_citron.info:0
+msgid "Tarte au citron"
+msgstr "Tarte au citron"
+
+#: tarte_au_citron.module:12
+msgid "Configure the Tarte au citron module."
+msgstr "Configurer le module Tarte au citron."
+
+#: tarte_au_citron.module:22
+msgid "Manage"
+msgstr "Gérer"
+
+#: tarte_au_citron.module:28
+msgid "Translate"
+msgstr "Traduire"
+
+#: tarte_au_citron.info:0
+msgid "tarte_au_citron"
+msgstr "tarte_au_citron"
+
+#: tarte_au_citron.info:0 modules/tarte_au_citron_damdy/tarte_au_citron_damdy.info:0 modules/tarte_au_citron_googletagmanager/tarte_au_citron_googletagmanager.info:0 modules/tarte_au_citron_gtag/tarte_au_citron_gtag.info:0 modules/tarte_au_citron_xiti/tarte_au_citron_xiti.info:0
+msgid "Tarte au citron | Customs"
+msgstr "Tarte au citron | Customs"
+
+#: modules/tarte_au_citron_damdy/tarte_au_citron_damdy.info:0
+msgid "tarte_au_citron_damdy"
+msgstr "tarte_au_citron_damdy"
+
+#: modules/tarte_au_citron_damdy/tarte_au_citron_damdy.info:0
+msgid "Damdy plugin for Tarte au citron module"
+msgstr "Plugin Damdy pour le module Tarte au citron"
+
+#: modules/tarte_au_citron_damdy/plugins/tarte_au_citron/damdy.inc:4
+msgid "Damdy"
+msgstr "Damdy"
+
+#: modules/tarte_au_citron_damdy/plugins/tarte_au_citron/damdy.inc:16 modules/tarte_au_citron_gtag/plugins/tarte_au_citron/gtag.inc:18 modules/tarte_au_citron_xiti/plugins/tarte_au_citron/xiti.inc:18
+msgid "<p><strong>@varName</strong></p><p>You must implement the hook hook_tarte_au_citron_@pluginId in a module and add a js file to define the function tarteaucitron.user.@functionName</p>"
+msgstr ""
+"<p><strong>@varName</strong></p><p>Vous devez implémenter le hook "
+"hook_tarte_au_citron_@pluginId dans un module et ajouter un fichier js "
+"pour définir la fonction tarteaucitron.user.@functionName</p>"
+
+#: modules/tarte_au_citron_googletagmanager/tarte_au_citron_googletagmanager.info:0
+msgid "tarte_au_citron_googletagmanager"
+msgstr "tarte_au_citron_googletagmanager"
+
+#: modules/tarte_au_citron_googletagmanager/tarte_au_citron_googletagmanager.info:0
+msgid "Google Tag Manager plugin for Tarte au citron module"
+msgstr "Plugin Google Tag Manager pour le module Tarte au citron"
+
+#: modules/tarte_au_citron_googletagmanager/plugins/tarte_au_citron/googletagmanager.inc:4
+msgid "Google Tag Manager"
+msgstr "Google Tag Manager"
+
+#: modules/tarte_au_citron_gtag/tarte_au_citron_gtag.info:0
+msgid "tarte_au_citron_gtag"
+msgstr "tarte_au_citron_gtag"
+
+#: modules/tarte_au_citron_gtag/tarte_au_citron_gtag.info:0
+msgid "Gtag plugin for Tarte au citron module"
+msgstr "Plugin Gtag pour le module Tarte au citron"
+
+#: modules/tarte_au_citron_gtag/plugins/tarte_au_citron/gtag.inc:4
+msgid "Gtag"
+msgstr "Gtag"
+
+#: modules/tarte_au_citron_gtag/plugins/tarte_au_citron/gtag.inc:10
+msgid "Gtag UA"
+msgstr "Gtag UA"
+
+#: modules/tarte_au_citron_gtag/plugins/tarte_au_citron/gtag.inc:11 modules/tarte_au_citron_xiti/plugins/tarte_au_citron/xiti.inc:11
+msgid "Parameter for tarte au citron @serviceName service."
+msgstr "Paramètre tarte au citron pour le service @serviceName"
+
+#: modules/tarte_au_citron_xiti/tarte_au_citron_xiti.info:0
+msgid "tarte_au_citron_xiti"
+msgstr "tarte_au_citron_xiti"
+
+#: modules/tarte_au_citron_xiti/tarte_au_citron_xiti.info:0
+msgid "Xiti plugin for Tarte au citron module"
+msgstr "Plugin Xiti pour le module Tarte au citron"
+
+#: modules/tarte_au_citron_xiti/plugins/tarte_au_citron/xiti.inc:4
+msgid "Xiti"
+msgstr "Xiti"
+
+#: modules/tarte_au_citron_xiti/plugins/tarte_au_citron/xiti.inc:10
+msgid "Xiti Id"
+msgstr "Identifiant Xiti"
+

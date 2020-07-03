@@ -1,0 +1,216 @@
+<?php
+
+
+
+/**
+ * Implements hook_menu().
+ */
+function tarte_au_citron_menu() {
+  $items = array();
+  $items['admin/config/user-interface/tarte-au-citron'] = array(
+    'title' => 'Tarte au citron',
+    'description' => 'Configure the Tarte au citron module.',
+    'file' => 'tarte_au_citron.admin.settings.inc',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('tarte_au_citron_settings_form'),
+    'access callback' => 'user_access',
+    'access arguments' => array('administer site configuration'),
+  );
+
+  $items['admin/config/user-interface/tarte-au-citron/default'] = array(
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+    'title' => 'Manage',
+    'weight' => 1,
+  );
+
+  $items['admin/config/user-interface/tarte-au-citron/translate'] = array(
+    'type' => MENU_LOCAL_TASK,
+    'title' => 'Translate',
+    'file' => 'tarte_au_citron.admin.translate.inc',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('tarte_au_citron_translate_form'),
+    'access callback' => 'user_access',
+    'access arguments' => array('administer site configuration'),
+    'weight' => 2,
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function tarte_au_citron_permission() {
+  return array(
+    'bypass tarte au citron' => array(
+      'title' => t('Bypass tarte au citron'),
+    ),
+    'translate tarte au citron' => array(
+      'title' => t('Translate tarte au citron'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_library().
+ */
+function tarte_au_citron_library() {
+  $libraries['tarte-au-citron'] = array(
+    'title' => 'Tarte au citron',
+    'version' => '1.0.0',
+    'js' => array(
+      drupal_get_path('module', 'tarte_au_citron') . '/js/tarte_au_citron/tarteaucitron.js' => array('every_page' => TRUE, 'preprocess' => FALSE),
+      drupal_get_path('module', 'tarte_au_citron') . '/js/tarteaucitron_drupal.js' => array('every_page' => TRUE, 'preprocess' => FALSE),
+      drupal_get_path('module', 'tarte_au_citron'). '/js/init.js' => array('every_page' => TRUE, 'preprocess' => FALSE, 'scope' => 'footer')
+    )
+  );
+
+  module_load_include('inc', 'tarte_au_citron', 'tarte_au_citron.admin.settings');
+  $data = variable_get('tarte_au_citron', _tarte_au_citron_default_settings());
+  $data['user'] = array();
+  $services_enabled = tarte_au_citron_get_enabled_plugins();
+
+  foreach ($services_enabled as $service_id => $service_infos) {
+    if (!empty($service_infos['add_js']) && function_exists($service_infos['add_js'])) {
+      call_user_func_array(
+        $service_infos['add_js'],
+        array(
+          &$libraries['tarte-au-citron'],
+          &$data['user'],
+          !empty($data['services_settings'][$service_id]) ? $data['services_settings'][$service_id] : NULL,
+        )
+      );
+    }
+  }
+  if (!empty($services_enabled)) {
+    $data['services'] = array_keys($services_enabled);
+  }
+  else {
+    $data['services'] = [];
+  }
+  if (!empty($data['services_settings'])) {
+    unset($data['services_settings']);
+  }
+
+  $libraries['tarte-au-citron']['js'][] = array(
+    'type' => 'setting',
+    'data' => array(
+      'tarte_au_citron' => $data
+    )
+  );
+
+  return $libraries;
+}
+
+/**
+ * Implements hook_ctools_plugin_type().
+ */
+function tarte_au_citron_ctools_plugin_type() {
+  return array(
+    'tarte_au_citron' => array(
+      'label' => 'Tarte au citron',
+      'use hooks' => FALSE,
+      'process' => 'tarte_au_citron_process_plugin'
+    )
+  );
+}
+
+function tarte_au_citron_process_plugin(&$plugin, $info) {
+  if (!isset($plugin['configure'])) {
+    $plugin['configure'] = $plugin['module'] . '_' . $plugin['name'] . '_configure';
+  }
+
+  if (!isset($plugin['add_js'])) {
+    $plugin['add_js'] = $plugin['module'] . '_' . $plugin['name'] . '_add_js';
+  }
+
+  // Add a block save function
+  if (!isset($plugin['save'])) {
+    $plugin['save'] = $plugin['module'] . '_' . $plugin['name'] . '_save';
+  }
+}
+
+function tarte_au_citron_get_all_plugins() {
+  ctools_include('plugins');
+  return ctools_get_plugins('tarte_au_citron', 'tarte_au_citron');
+}
+
+function tarte_au_citron_get_enabled_plugins() {
+  $services_enabled = drupal_static(__FUNCTION__);
+  if (empty($services_enabled)) {
+    $services = tarte_au_citron_get_all_plugins();
+    module_load_include('inc', 'tarte_au_citron', 'tarte_au_citron.admin.settings');
+    $config = variable_get('tarte_au_citron', _tarte_au_citron_default_settings());
+    $services_enabled = array_filter($config['services']);
+    $services_enabled = array_intersect_key($services, $services_enabled);
+  }
+
+  //TODO
+  return $services_enabled;
+}
+
+function tarte_au_citron_is_plugin_enabled($id) {
+  $is_service_enabled = drupal_static(__FUNCTION__ . '' . $id);
+  if (is_null($is_service_enabled)) {
+    $services_enabled = tarte_au_citron_get_enabled_plugins();
+    $is_service_enabled = array_key_exists($id, $services_enabled);
+  }
+  return $is_service_enabled;
+}
+
+function tarte_au_citron_get_plugin($name) {
+  ctools_include('plugins');
+  return ctools_get_plugins('tarte_au_citron', 'tarte_au_citron', $name);
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function tarte_au_citron_preprocess_page(&$variables) {
+  if (!_tarte_au_citron_is_needed()) {
+    return;
+  }
+  global $language;
+  drupal_add_library('tarte_au_citron', 'tarte-au-citron');
+
+  if (FALSE && $cache = cache_get('tarte_au_citron_translate')) {
+    $texts = $cache->data;
+  }
+  else {
+    //Translate labels
+    module_load_include('inc', 'tarte_au_citron', 'tarte_au_citron.admin.translate');
+    $texts = array(
+      'en' => variable_get('tarte_au_citron_texts', _tarte_au_citron_default_translate())
+    );
+
+    if (module_exists('locale')) {
+      $languages = language_list('enabled');
+      $languages = $languages[1];
+      foreach ($languages as $current_language_key => $current_language_value) {
+        if ($current_language_key === 'en') {
+          continue;
+        }
+        $texts[$current_language_key] = array();
+        foreach ($texts['en'] as $text_key => $text_value) {
+          if (is_string($text_value)) {
+            $texts[$current_language_key][$text_key] = t($text_value, array(), array('langcode' => $current_language_key));
+          }
+          else if (is_array($text_value)) {
+            foreach ($text_value as $sub_text_key => $sub_text_value) {
+              $texts[$current_language_key][$text_key][$sub_text_key] = t($sub_text_value, array(), array('langcode' => $current_language_key));
+            }
+          }
+        }
+
+      }
+    }
+
+    cache_set('tarte_au_citron_translate', $texts, 'cache');
+  }
+
+  $langcode = isset($language->language) ? $language->language : 'en';
+  drupal_add_js(array('tarte_au_citron' => array('texts' => $texts[$langcode])), 'setting');
+}
+
+function _tarte_au_citron_is_needed() {
+  return !user_access('bypass tarte au citron');
+}

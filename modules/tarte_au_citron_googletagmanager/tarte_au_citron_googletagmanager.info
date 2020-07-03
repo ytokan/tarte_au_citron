@@ -1,0 +1,8 @@
+name = tarte_au_citron_googletagmanager
+description = Google Tag Manager plugin for Tarte au citron module
+package = Tarte au citron | Customs
+core = 7.x
+dependencies[] = tarte_au_citron
+dependencies[] = google_tag
+
+files[] = includes/entity/manager.inc

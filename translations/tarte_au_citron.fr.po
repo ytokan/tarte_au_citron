@@ -474,8 +474,8 @@ msgid "tarte_au_citron"
 msgstr "tarte_au_citron"
 
 #: tarte_au_citron.info:0 modules/tarte_au_citron_damdy/tarte_au_citron_damdy.info:0 modules/tarte_au_citron_googletagmanager/tarte_au_citron_googletagmanager.info:0 modules/tarte_au_citron_gtag/tarte_au_citron_gtag.info:0 modules/tarte_au_citron_xiti/tarte_au_citron_xiti.info:0
-msgid "Tarte au citron | Customs"
-msgstr "Tarte au citron | Customs"
+msgid "GDPR"
+msgstr "GDPR"
 
 #: modules/tarte_au_citron_damdy/tarte_au_citron_damdy.info:0
 msgid "tarte_au_citron_damdy"

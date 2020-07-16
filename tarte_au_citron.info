@@ -1,6 +1,6 @@
 name = tarte_au_citron
 description = Tarte au citron
-package = Tarte au citron | Customs
+package = GDPR
 core = 7.x
 configure = admin/config/user-interface/tarte-au-citron
 dependencies[] = ctools

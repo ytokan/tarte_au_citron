@@ -10,7 +10,7 @@ function tarte_au_citron_googletagmanager_ctools_plugin_directory($module, $plug
  * Implements hook_module_implements_alter().
  */
 function tarte_au_citron_googletagmanager_module_implements_alter(&$implementations, $hook) {
-  if ($hook === 'page_build' && isset($implementations['google_tag']) && tarte_au_citron_is_plugin_enabled('googletagmanager')) {
+  if ($hook === 'page_build' && isset($implementations['google_tag']) && tarte_au_citron_is_plugin_enabled('drupal_googletagmanager')) {
     unset($implementations['google_tag']);
   }
 }

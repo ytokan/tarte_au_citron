@@ -1,7 +1,7 @@
 <?php
 
 $plugin = array(
-  'title' => t('Google tag (Provided by Tarte au citron)'),
+  'title' => t('Google Tag (Provided by Tarte au citron)'),
 );
 
 function tarte_au_citron_gtag_gtag_configure(&$form, $config) {

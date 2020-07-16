@@ -1,10 +1,11 @@
 // google analytics
-tarteaucitron.services.googletagmanager = {
-  "key": "googletagmanager",
-  "type": "analytic",
+tarteaucitron.services.drupal_googletagmanager = {
+  "key": "drupal_googletagmanager",
+  "type": "api",
   "name": "Google Tag Manager",
+  "uri": "https://adssettings.google.com/",
   "needConsent": true,
-  "cookies": [],
+  "cookies": ['_ga', '_gat', '__utma', '__utmb', '__utmc', '__utmt', '__utmz', '__gads', '_drt_', 'FLC', 'exchange_uid', 'id', 'fc', 'rrs', 'rds', 'rv', 'uid', 'UIDR', 'UID', 'clid', 'ipinfo', 'acs'],
   "js": function () {
     "use strict";
     if (tarteaucitron.user.googletagmanagerId === undefined) {

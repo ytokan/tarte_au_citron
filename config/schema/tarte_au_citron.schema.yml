@@ -1,0 +1,206 @@
+tarte_au_citron.settings:
+  type: config_entity
+  label: 'Tarte au citron settings'
+  mapping:
+    hashtag:
+      type: string
+      label: 'Hashtag setting'
+    cookieName:
+      type: string
+      label: 'Cookie name setting'
+    orientation:
+      type: string
+      label: 'Orientation setting'
+    showAlertSmall:
+      type: boolean
+      label: 'Show alert small'
+    cookieslist:
+      type: boolean
+      label: 'Show cookie list'
+    adblocker:
+      type: boolean
+      label: 'Ad blocker'
+    AcceptAllCta:
+      type: boolean
+      label: 'Accept all CTA'
+    highPrivacy:
+      type: boolean
+      label: 'High privacy'
+    handleBrowserDNTRequest:
+      type: boolean
+      label: 'Handle Browser DNT Request'
+    removeCredit:
+      type: boolean
+      label: 'Remove credit'
+    moreInfoLink:
+      type: boolean
+      label: 'More info link'
+    useExternalCss:
+      type: boolean
+      label: 'Use external css'
+    readmoreLink:
+      type: string
+      label: 'Read more link'
+    services:
+      type: sequence
+      label: 'Services'
+      sequence:
+        type: string
+        label: 'Service'
+
+tarte_au_citron.texts.settings:
+  type: config_entity
+  label: 'Tarte au citron texts settings'
+  mapping:
+    middleBarHead:
+      type: label
+      label: 'middleBarHead'
+    adblock:
+      type: label
+      label: 'adblock'
+    adblock_call:
+      type: label
+      label: 'adblock_call'
+    reload:
+      type: label
+      label: 'reload'
+    alertBigScroll:
+      type: label
+      label: 'alertBigScroll'
+    alertBigClick:
+      type: label
+      label: 'alertBigClick'
+    alertBig:
+      type: label
+      label: 'alertBig'
+    alertBigPrivacy:
+      type: label
+      label: 'alertBigPrivacy'
+    alertSmall:
+      type: label
+      label: 'alertSmall'
+    personalize:
+      type: label
+      label: 'personalize'
+    acceptAll:
+      type: label
+      label: 'acceptAll'
+    close:
+      type: label
+      label: 'close'
+    privacyUrl:
+      type: label
+      label: 'privacyUrl'
+    all:
+      type: label
+      label: 'all'
+    info:
+      type: label
+      label: 'info'
+    disclaimer:
+      type: label
+      label: 'disclaimer'
+    allow:
+      type: label
+      label: 'allow'
+    deny:
+      type: label
+      label: 'deny'
+    noCookie:
+      type: label
+      label: 'noCookie'
+    useCookie:
+      type: label
+      label: 'useCookie'
+    useCookieCurrent:
+      type: label
+      label: 'useCookieCurrent'
+    useNoCookie:
+      type: label
+      label: 'useNoCookie'
+    more:
+      type: label
+      label: 'more'
+    source:
+      type: label
+      label: 'source'
+    credit:
+      type: label
+      label: 'credit'
+    noServices:
+      type: label
+      label: 'noServices'
+    toggleInfoBox:
+      type: label
+      label: 'toggleInfoBox'
+    title:
+      type: label
+      label: 'title'
+    cookieDetail:
+      type: label
+      label: 'cookieDetail'
+    ourSite:
+      type: label
+      label: 'ourSite'
+    newWindow:
+      type: label
+      label: 'newWindow'
+    allowAll:
+      type: label
+      label: 'allowAll'
+    denyAll:
+      type: label
+      label: 'denyAll'
+    fallback:
+      type: label
+      label: 'fallback'
+    ads_title:
+      type: label
+      label: 'ads_title'
+    ads_details:
+      type: label
+      label: 'ads_details'
+    analytic_title:
+      type: label
+      label: 'analytic_title'
+    analytic_details:
+      type: label
+      label: 'analytic_details'
+    social_title:
+      type: label
+      label: 'social_title'
+    social_details:
+      type: label
+      label: 'social_details'
+    video_title:
+      type: label
+      label: 'video_title'
+    video_details:
+      type: label
+      label: 'video_details'
+    comment_title:
+      type: label
+      label: 'comment_title'
+    comment_details:
+      type: label
+      label: 'comment_details'
+    support_title:
+      type: label
+      label: 'support_title'
+    support_details:
+      type: label
+      label: 'support_details'
+    api_title:
+      type: label
+      label: 'api_title'
+    api_details:
+      type: label
+      label: 'api_details'
+    other_title:
+      type: label
+      label: 'other_title'
+    other_details:
+      type: label
+      label: 'other_details'
+
+

@@ -1,0 +1,13 @@
+name: Tarte au citron Google Tag Manager
+description: Google Tag Manager plugin for Tarte au citron module
+type: module
+package: 'GDPR'
+core: 8.x
+core_version_requirement: ^8 || ^9
+
+libraries:
+    - tarte_au_citron_googletagmanager/googletagmanager
+
+dependencies:
+  - tarte_au_citron
+  - google_tag

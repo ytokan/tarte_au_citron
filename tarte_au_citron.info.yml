@@ -1,0 +1,11 @@
+name: Tarte au citron
+description: Manage features which use cookies (ads, social networks, videos, other contrib modules who print data in your pages)
+type: module
+package: 'GDPR'
+core: 8.x
+core_version_requirement: ^8 || ^9
+libraries:
+    - tarte_au_citron/tarte_au_citron
+
+'interface translation project': tarte_au_citron
+'interface translation server pattern': modules/custom/tarte_au_citron/translations/tarte_au_citron-%language.po

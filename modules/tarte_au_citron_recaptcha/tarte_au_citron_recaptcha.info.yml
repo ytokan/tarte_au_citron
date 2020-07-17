@@ -1,0 +1,13 @@
+name: Tarte au citron Recaptcha
+description: Recaptcha plugin for Tarte au citron module
+type: module
+package: 'GDPR'
+core: 8.x
+core_version_requirement: ^8 || ^9
+
+libraries:
+    - tarte_au_citron_recaptcha/recaptcha
+
+dependencies:
+  - tarte_au_citron
+  - recaptcha

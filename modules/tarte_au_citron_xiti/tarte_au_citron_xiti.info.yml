@@ -1,0 +1,9 @@
+name: Tarte au citron AT Internet (Xiti)
+description: AT Internet (Xiti) plugin for Tarte au citron module
+type: module
+package: 'GDPR'
+core: 8.x
+core_version_requirement: ^8 || ^9
+
+dependencies:
+  - tarte_au_citron

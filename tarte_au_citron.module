@@ -1,0 +1,48 @@
+<?php
+
+/**
+ * @file
+ * Provides primary Drupal hook implementations.
+ */
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function tarte_au_citron_page_attachments_alter(array &$attachments) {
+  /**
+   * @var $serviceManager \Drupal\tarte_au_citron\ServicesManagerInterface
+   */
+  $serviceManager = \Drupal::getContainer()
+    ->get('tarte_au_citron.services_manager');
+
+  if (!$serviceManager->isNeeded()) {
+    return;
+  }
+  $config = \Drupal::config('tarte_au_citron.settings');
+  $data = $config->get();
+
+  $attachments['#attached']['library'][] = 'tarte_au_citron/tarte_au_citron';
+
+  // Attach library services.
+  $enabledServices = $serviceManager->getServices(TRUE);
+
+  $data['user'] = [];
+  foreach ($enabledServices as $currentService) {
+    /**
+     * @var \Drupal\tarte_au_citron\ServicePluginBase $currentService
+     */
+    $currentService->addJs($attachments, $data['user']);
+    \Drupal::moduleHandler()
+      ->alter('tarte_au_citron_' . $currentService->getPluginId(), $attachments);
+  }
+  if (!empty($data['services'])) {
+    $data['services'] = array_keys($data['services']);
+    unset($data['services_settings']);
+  }
+
+  // Translate labels.
+  $data['texts'] = \Drupal::config('tarte_au_citron.texts.settings')->get();
+  unset($data['_core'], $data['texts']['_core']);
+
+  $attachments['#attached']['drupalSettings']['tarte_au_citron'] = $data;
+}

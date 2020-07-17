@@ -1,0 +1,9 @@
+tarte_au_citron.services:
+  route_name: tarte_au_citron.services
+  title: 'Settings for Tarte au citron module'
+  base_route: tarte_au_citron.config
+
+tarte_au_citron.edit_texts:
+  route_name: tarte_au_citron.edit_texts
+  title: 'Texts settings for Tarte au citron module'
+  base_route: tarte_au_citron.config

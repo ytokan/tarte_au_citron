@@ -1,0 +1,5 @@
+tarte_au_citron.edit_texts:
+  title: 'Texts settings for Tarte au citron module'
+  base_route_name: tarte_au_citron.edit_texts
+  names:
+    - tarte_au_citron.texts.settings

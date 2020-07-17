@@ -1,0 +1,5 @@
+googletagmanager:
+  header: true
+  version: 0
+  js:
+    js/tarte_au_citron_googletagmanager.js: {}

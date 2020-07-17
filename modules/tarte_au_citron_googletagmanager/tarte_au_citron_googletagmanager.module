@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * @file
+ * Provides primary Drupal hook implementations.
+ */
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function tarte_au_citron_googletagmanager_page_attachments_alter(array &$attachments) {
+  /**
+   * @var $serviceManager \Drupal\tarte_au_citron\ServicesManagerInterface
+   */
+  $serviceManager = \Drupal::getContainer()
+    ->get('tarte_au_citron.services_manager');
+  if (!$serviceManager->isNeeded() || !$serviceManager->isServiceEnabled('drupal_googletagmanager')) {
+    return;
+  }
+
+  foreach ($attachments['#attached']['html_head'] as $key => $current_attachement) {
+    if (empty($current_attachement[1]) || strpos($current_attachement[1], 'google_tag_script_tag__') === FALSE) {
+      continue;
+    }
+    unset($attachments['#attached']['html_head'][$key]);
+  }
+}

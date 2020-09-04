@@ -3,6 +3,7 @@
 namespace Drupal\tarte_au_citron;
 
 use Drupal\Component\Plugin\Mapper\MapperInterface;
+use Drupal\Component\Serialization\Json;
 use Drupal\Core\Cache\CacheBackendInterface;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
@@ -36,6 +37,13 @@ class ServicesManager extends DefaultPluginManager implements ServicesManagerInt
   protected $currentUser;
 
   /**
+   * The tarte_au_citron cache bin.
+   *
+   * @var \Drupal\Core\Cache\CacheBackendInterface
+   */
+  protected $tarteAuCitronCache;
+
+  /**
    * Constructs a new SectionStorageManager object.
    *
    * @param \Traversable $namespaces
@@ -49,12 +57,15 @@ class ServicesManager extends DefaultPluginManager implements ServicesManagerInt
    *   The config factory.
    * @param \Drupal\Core\Session\AccountProxyInterface $current_user
    *   The current user.
+   * @param \Drupal\Core\Cache\CacheBackendInterface $tarte_au_citron_cache
+   *   Cache backend instance to use.
    */
-  public function __construct(\Traversable $namespaces, CacheBackendInterface $cache_backend, ModuleHandlerInterface $module_handler, ConfigFactoryInterface $config_factory, AccountProxyInterface $current_user) {
+  public function __construct(\Traversable $namespaces, CacheBackendInterface $cache_backend, ModuleHandlerInterface $module_handler, ConfigFactoryInterface $config_factory, AccountProxyInterface $current_user, CacheBackendInterface $tarte_au_citron_cache) {
     parent::__construct('Plugin/tarte_au_citron', $namespaces, $module_handler, 'Drupal\tarte_au_citron\ServicePluginInterface', 'Drupal\tarte_au_citron\Annotation\TarteAuCitronService');
     $this->alterInfo('tarte_au_citron_services_info');
     $this->config = $config_factory->get('tarte_au_citron.settings');
     $this->currentUser = $current_user;
+    $this->tarteAuCitronCache = $tarte_au_citron_cache;
   }
 
   /**
@@ -66,8 +77,8 @@ class ServicesManager extends DefaultPluginManager implements ServicesManagerInt
   public function getServicesOptionList() {
     if (!isset($this->optionList)) {
       $this->optionList = [];
-      foreach ($this->getDefinitions() as $definition) {
-        $this->optionList[$definition['id']] = $definition['title'];
+      foreach ($this->getDefinitions() as $id => $definition) {
+        $this->optionList[$id] = $definition['title'];
       }
     }
     return $this->optionList;
@@ -95,6 +106,30 @@ class ServicesManager extends DefaultPluginManager implements ServicesManagerInt
       $services[$currentServiceId] = $this->createInstance($currentServiceId, ['enabled' => !empty($enabledServices[$currentServiceId]), 'settings' => $config]);
     }
     return $services;
+  }
+
+  /**
+   * Get the list of available services in tarteaucitron.services.js.
+   *
+   * @return []
+   *   The array of js services available.
+   */
+  public function getJsServices() {
+    $cid = 'tarte_au_citron:services_js';
+    $data_cached = $this->tarteAuCitronCache->get($cid);
+    if (!$data_cached) {
+      $relative_path = dirname(__DIR__);
+      $content_json_path = $relative_path . '/js/tarte_au_citron/tarteaucitron.services.js';
+      $content_json = file_get_contents($content_json_path);
+      preg_match_all('/tarteaucitron\.services\.([^\s]+)/i', $content_json, $matches);
+
+
+      $data_cached = $matches[1];
+      sort($data_cached);
+
+      $this->tarteAuCitronCache->set($cid, $data_cached);
+    }
+    return $data_cached;
   }
 
   /**

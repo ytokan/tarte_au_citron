@@ -27,6 +27,14 @@ interface ServicesManagerInterface {
   public function getServices($enabled = FALSE);
 
   /**
+   * Get the list of available services in tarteaucitron.services.js.
+   *
+   * @return []
+   *   The array of js services available.
+   */
+  public function getJsServices();
+
+  /**
    * Check if a service is enabled.
    *
    * @param string $serviceId

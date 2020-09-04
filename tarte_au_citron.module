@@ -27,6 +27,7 @@ function tarte_au_citron_page_attachments_alter(array &$attachments) {
   $enabledServices = $serviceManager->getServices(TRUE);
 
   $data['user'] = [];
+  $data['services'] = [];
   foreach ($enabledServices as $currentService) {
     /**
      * @var \Drupal\tarte_au_citron\ServicePluginBase $currentService
@@ -34,9 +35,9 @@ function tarte_au_citron_page_attachments_alter(array &$attachments) {
     $currentService->addJs($attachments, $data['user']);
     \Drupal::moduleHandler()
       ->alter('tarte_au_citron_' . $currentService->getPluginId(), $attachments);
+    $data['services'][] = $currentService->getPluginDefinition()['id'];
   }
   if (!empty($data['services'])) {
-    $data['services'] = array_keys($data['services']);
     unset($data['services_settings']);
   }
 

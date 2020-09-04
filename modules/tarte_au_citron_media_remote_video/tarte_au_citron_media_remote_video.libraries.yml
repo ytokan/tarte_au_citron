@@ -1,0 +1,11 @@
+drupal_vimeo:
+  header: true
+  version: 0
+  js:
+    js/tarte_au_citron_vimeo.js: {}
+
+drupal_youtube:
+  header: true
+  version: 0
+  js:
+    js/tarte_au_citron_youtube.js: {}

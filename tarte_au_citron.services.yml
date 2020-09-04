@@ -2,4 +2,10 @@ services:
   tarte_au_citron.services_manager:
     class: Drupal\tarte_au_citron\ServicesManager
     parent: default_plugin_manager
-    arguments: ['@config.factory', '@current_user']
+    arguments: ['@config.factory', '@current_user', '@tarte_au_citron.services_js']
+  tarte_au_citron.services_js:
+    class: Drupal\Core\Cache\CacheBackendInterface
+    tags:
+      - { name: cache.bin }
+    factory: cache_factory:get
+    arguments: [ services_js ]

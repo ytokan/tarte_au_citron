@@ -1,0 +1,13 @@
+name: Tarte au citron Add To Any
+description: AddToAny plugin for Tarte au citron module
+type: module
+package: 'GDPR'
+core: 8.x
+core_version_requirement: ^8 || ^9
+
+libraries:
+    - tarte_au_citron_addtoany/addtoany
+
+dependencies:
+  - tarte_au_citron
+  - addtoany

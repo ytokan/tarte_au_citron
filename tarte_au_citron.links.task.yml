@@ -1,0 +1,8 @@
+tarte_au_citron.settings:
+  route_name: tarte_au_citron.services
+  title: 'Settings'
+  base_route: tarte_au_citron.services
+tarte_au_citron.texts:
+  route_name: tarte_au_citron.edit_texts
+  title: 'Texts settings'
+  base_route: tarte_au_citron.services

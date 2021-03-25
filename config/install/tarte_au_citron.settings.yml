@@ -1,9 +1,14 @@
+langcode: en
 hashtag: '#tarteaucitron'
 cookieName: tarteaucitron
 orientation: top
+mandatory: 0
 showAlertSmall: 0
 cookieslist: 0
+showIcon: 0
+iconPosition: BottomRight
 adblocker: 0
+DenyAllCta: 0
 AcceptAllCta: 0
 highPrivacy: 0
 handleBrowserDNTRequest: 0

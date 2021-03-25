@@ -2,47 +2,19 @@
 
 namespace Drupal\tarte_au_citron\Form;
 
-use Drupal\Core\Config\ConfigFactoryInterface;
-use Drupal\Core\Form\ConfigFormBase;
+use Drupal\Component\Utility\Html;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\tarte_au_citron\ServicesManagerInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Implements an example form.
  */
-class ConfigurationForm extends ConfigFormBase {
-
-  /**
-   * The service manager.
-   *
-   * @var \Drupal\tarte_au_citron\ServicesManagerInterface
-   */
-  protected $servicesManager;
-
-  /**
-   * {@inheritdoc}
-   */
-  public function __construct(ConfigFactoryInterface $config_factory, ServicesManagerInterface $servicesManager) {
-    parent::__construct($config_factory);
-    $this->servicesManager = $servicesManager;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public static function create(ContainerInterface $container) {
-    return new static(
-      $container->get('config.factory'),
-      $container->get('tarte_au_citron.services_manager')
-    );
-  }
+class ConfigurationForm extends AbstractForm {
 
   /**
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'configuration_form';
+    return 'tarte_au_citron_configuration_form';
   }
 
   /**
@@ -65,22 +37,19 @@ class ConfigurationForm extends ConfigFormBase {
     ];
 
     $form['hashtag'] = [
-      '#title' => 'Hashtag',
-      '#description' => $this->t('Open the panel with this hashtag.'),
+      '#title' => $this->t('Open the panel with this hashtag'),
       '#type' => 'textfield',
       '#default_value' => $config->get('hashtag'),
     ];
 
     $form['cookieName'] = [
-      '#title' => $this->t('Cookie Name'),
-      '#description' => $this->t('Cookie name.'),
+      '#title' => $this->t('Cookie name'),
       '#type' => 'textfield',
       '#default_value' => $config->get('cookieName'),
     ];
 
     $form['orientation'] = [
-      '#title' => $this->t('Orientation'),
-      '#description' => $this->t('Banner position (top - middle - bottom).'),
+      '#title' => $this->t('Banner position (top - middle - bottom)'),
       '#type' => 'select',
       '#options' => [
         'top' => $this->t('Top'),
@@ -91,81 +60,101 @@ class ConfigurationForm extends ConfigFormBase {
       '#default_value' => $config->get('orientation'),
     ];
 
+    $form['mandatory'] = [
+      '#title' => $this->t('Show a message about mandatory cookies'),
+      '#type' => 'checkbox',
+      '#default_value' => $config->get('mandatory'),
+    ];
+
     $form['showAlertSmall'] = [
-      '#title' => $this->t('Show alert small'),
-      '#description' => $this->t('Show the small banner on bottom right.'),
+      '#title' => $this->t('Show the small banner on bottom right'),
       '#type' => 'checkbox',
       '#default_value' => $config->get('showAlertSmall'),
     ];
 
     $form['cookieslist'] = [
-      '#title' => $this->t('Cookies list'),
-      '#description' => $this->t('Show the cookie list.'),
+      '#title' => $this->t('Show the cookie list'),
       '#type' => 'checkbox',
       '#default_value' => $config->get('cookieslist'),
     ];
 
+    $form['showIcon'] = [
+      '#title' => $this->t('Show cookie icon to manage cookies'),
+      '#type' => 'checkbox',
+      '#default_value' => $config->get('showIcon'),
+    ];
+
+    $form['iconPosition'] = [
+      '#title' => $this->t('Position of the icon (bottom right - bottom left - top right - top left)'),
+      '#type' => 'select',
+      '#options' => [
+        'BottomRight' => $this->t('Bottom right'),
+        'BottomLeft' => $this->t('Bottom left'),
+        'TopRight' => $this->t('Top right'),
+        'TopLeft' => $this->t('Top left'),
+      ],
+      '#required' => TRUE,
+      '#default_value' => $config->get('iconPosition'),
+    ];
+
     $form['adblocker'] = [
-      '#title' => 'Adblocker',
-      '#description' => $this->t('Show a Warning if an adblocker is detected.'),
+      '#title' => $this->t('Show a Warning if an adblocker is detected'),
       '#type' => 'checkbox',
       '#default_value' => $config->get('adblocker'),
 
+    ];
+
+    $form['DenyAllCta'] = [
+      '#title' => $this->t('Show the deny all button'),
+      '#type' => 'checkbox',
+      '#default_value' => $config->get('DenyAllCta'),
     ];
 
     $form['AcceptAllCta'] = [
-      '#title' => $this->t('Accept All Cta'),
-      '#description' => $this->t('Show the accept all button when high Privacy on.'),
+      '#title' => $this->t('Show the accept all button when highPrivacy on'),
       '#type' => 'checkbox',
-      '#default_value' => $config->get('adblocker'),
+      '#default_value' => $config->get('AcceptAllCta'),
     ];
 
     $form['highPrivacy'] = [
-      '#title' => $this->t('High Privacy'),
-      '#description' => $this->t('Disable auto consent.'),
+      '#title' => $this->t('HIGHLY RECOMMANDED Disable auto consent'),
       '#type' => 'checkbox',
       '#default_value' => $config->get('highPrivacy'),
     ];
 
     $form['handleBrowserDNTRequest'] = [
-      '#title' => $this->t('Handle browser do not track request'),
-      '#description' => $this->t('If Do Not Track == 1, disallow all.'),
+      '#title' => $this->t('If Do Not Track == 1, disallow all'),
       '#type' => 'checkbox',
       '#default_value' => $config->get('handleBrowserDNTRequest'),
     ];
 
     $form['removeCredit'] = [
-      '#title' => $this->t('Remove credit'),
-      '#description' => $this->t('Remove credit link.'),
+      '#title' => $this->t('Remove credit link'),
       '#type' => 'checkbox',
       '#default_value' => $config->get('removeCredit'),
     ];
 
     $form['moreInfoLink'] = [
-      '#title' => $this->t('More info link'),
-      '#description' => $this->t('Show more info link.'),
+      '#title' => $this->t('Show more info link'),
       '#type' => 'checkbox',
       '#default_value' => $config->get('moreInfoLink'),
     ];
 
     $form['useExternalCss'] = [
-      '#title' => $this->t('Use external css'),
-      '#description' => $this->t('If not checked, the tarteaucitron.css file will be loaded. If you want to customize the appearance of tarte au citron component, add your own css file based on tarteaucitron.css in a module or theme.'),
+      '#title' => $this->t('If false, the tarteaucitron.css file will be loaded'),
       '#type' => 'checkbox',
       '#default_value' => $config->get('useExternalCss'),
     ];
 
     $form['privacyUrl'] = [
-      '#title' => $this->t('Privacy Url'),
-      '#description' => $this->t('Privacy policy.'),
+      '#title' => $this->t('Privacy policy url'),
       '#type' => 'textfield',
       '#placeholder' => $this->t('relative path to privacy policy'),
       '#default_value' => $config->get('privacyUrl'),
     ];
 
     $form['readmoreLink'] = [
-      '#title' => $this->t('Read more link'),
-      '#description' => $this->t('Change the default readmore link.'),
+      '#title' => $this->t('Change the default readmore link pointing to tarteaucitron.io'),
       '#type' => 'textfield',
       '#default_value' => $config->get('readmoreLink'),
     ];
@@ -201,12 +190,13 @@ class ConfigurationForm extends ConfigFormBase {
       if (empty($children)) {
         continue;
       }
+      $htmlId = Html::getId($service->getPluginId());
       $form['services_settings'][$service->getPluginId()] = [
         '#type' => 'fieldset',
         '#title' => $service->getPluginTitle(),
         '#states' => [
           'visible' => [
-            ':input[id="edit-services-' . $service->getPluginId() . '"]' => ['checked' => TRUE],
+            ':input[id="edit-services-' . $htmlId . '"]' => ['checked' => TRUE],
           ],
         ],
       ];
@@ -236,9 +226,13 @@ class ConfigurationForm extends ConfigFormBase {
       ->set('hashtag', $form_state->getValue('hashtag'))
       ->set('cookieName', $form_state->getValue('cookieName'))
       ->set('orientation', $form_state->getValue('orientation'))
+      ->set('mandatory', $form_state->getValue('mandatory'))
       ->set('showAlertSmall', $form_state->getValue('showAlertSmall'))
       ->set('cookieslist', $form_state->getValue('cookieslist'))
+      ->set('showIcon', $form_state->getValue('showIcon'))
+      ->set('iconPosition', $form_state->getValue('iconPosition'))
       ->set('adblocker', $form_state->getValue('adblocker'))
+      ->set('DenyAllCta', $form_state->getValue('DenyAllCta'))
       ->set('AcceptAllCta', $form_state->getValue('AcceptAllCta'))
       ->set('highPrivacy', $form_state->getValue('highPrivacy'))
       ->set('handleBrowserDNTRequest', $form_state->getValue('handleBrowserDNTRequest'))
@@ -250,6 +244,8 @@ class ConfigurationForm extends ConfigFormBase {
       ->set('cookieDomain', $form_state->getValue('cookieDomain'))
       ->set('services', array_filter($form_state->getValue('services')))
       ->set('services_settings', $form_state->getValue('services_settings'));
+
+    $this->moduleHandler->alter('tarte_au_citron_config', $config, $form, $form_state);
 
     $config->save();
 

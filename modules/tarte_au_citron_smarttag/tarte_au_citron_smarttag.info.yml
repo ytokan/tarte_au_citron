@@ -1,0 +1,12 @@
+name: Tarte au citron SmartTag
+description: SmartTag plugin for Tarte au citron module
+type: module
+package: 'GDPR'
+core: 8.x
+core_version_requirement: ^8 || ^9
+
+libraries:
+    - tarte_au_citron_smarttag/smarttag
+
+dependencies:
+  - tarte_au_citron

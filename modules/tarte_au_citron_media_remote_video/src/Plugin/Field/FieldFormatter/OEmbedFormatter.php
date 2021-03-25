@@ -37,14 +37,14 @@ class OEmbedFormatter extends OldOEmberFormatter {
   /**
    * The media source manager plugin.
    *
-   * @var PluginManagerInterface
+   * @var \Drupal\Component\Plugin\PluginManagerInterface
    */
   protected $mediaSourceManager;
 
   /**
    * The tarte au citron service manager.
    *
-   * @var ServicesManagerInterface
+   * @var \Drupal\tarte_au_citron\ServicesManagerInterface
    */
   protected $tacServiceManager;
 
@@ -111,7 +111,7 @@ class OEmbedFormatter extends OldOEmberFormatter {
     );
   }
 
-    /**
+  /**
    * {@inheritdoc}
    */
   public function viewElements(FieldItemListInterface $items, $langcode) {
@@ -121,7 +121,7 @@ class OEmbedFormatter extends OldOEmberFormatter {
     }
 
     foreach ($items as $delta => $item) {
-      if(!isset($element[$delta]['#tag']) || $element[$delta]['#tag'] !== 'iframe') {
+      if (!isset($element[$delta]['#tag']) || $element[$delta]['#tag'] !== 'iframe') {
         continue;
       }
 
@@ -138,8 +138,8 @@ class OEmbedFormatter extends OldOEmberFormatter {
       }
 
       $element[$delta]['#tag'] = 'div';
-      foreach($element[$delta]['#attributes'] as $attributeKey => $attributeValue) {
-        if($attributeKey === 'class') {
+      foreach ($element[$delta]['#attributes'] as $attributeKey => $attributeValue) {
+        if ($attributeKey === 'class') {
           $element[$delta]['#attributes'][$attributeKey][] = $provider_name . '_player';
         }
         else {

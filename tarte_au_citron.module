@@ -34,7 +34,7 @@ function tarte_au_citron_page_attachments_alter(array &$attachments) {
      */
     $currentService->addJs($attachments, $data['user']);
     \Drupal::moduleHandler()
-      ->alter('tarte_au_citron_' . $currentService->getPluginId(), $attachments);
+      ->alter('tarte_au_citron_' . $currentService->getPluginId(), $attachments, $currentService);
     $data['services'][] = $currentService->getPluginDefinition()['id'];
   }
   if (!empty($data['services'])) {
@@ -43,7 +43,25 @@ function tarte_au_citron_page_attachments_alter(array &$attachments) {
 
   // Translate labels.
   $data['texts'] = \Drupal::config('tarte_au_citron.texts.settings')->get();
-  unset($data['_core'], $data['texts']['_core']);
-
+  unset($data['texts']['_core'], $data['texts']['langcode']);
+  foreach ($data['texts'] as $keyText => $keyValue) {
+    $label = t($keyValue)->render();
+    if (strpos($keyText, 'engage-') === FALSE && strpos($keyText, '_') !== FALSE) {
+      list($keyMain, $keySecond) = explode('_', $keyText);
+      if (!isset($data['texts'][$keyMain])) {
+        $data['texts'][$keyMain] = [];
+      }
+      if (is_array($data['texts'][$keyMain])) {
+        $data['texts'][$keyMain][$keySecond] = $label;
+        unset($data['texts'][$keyText]);
+      }
+      else {
+        $data['texts'][$keyText] = $label;
+      }
+    }
+    else {
+      $data['texts'][$keyText] = $label;
+    }
+  }
   $attachments['#attached']['drupalSettings']['tarte_au_citron'] = $data;
 }

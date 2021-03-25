@@ -42,7 +42,7 @@ class Xiti extends ServicePluginBase {
     $elements['xitiMore'] = [
       '#type' => 'markup',
       '#markup' => $this->t(
-        '<p><strong>@varName</strong></p><p>You must implement the hook "hook_icdc_tarte_au_citron_@pluginId_alter" in a module and add a js file to define the function "tarteaucitron.user.@functionName"</p>',
+        '<p><strong>@varName</strong></p><p>You must implement the hook "hook_tarte_au_citron_@pluginId_alter" in a module and add a js file to define the function "tarteaucitron.user.@functionName"</p>',
         [
           '@varName' => 'Xiti More',
           '@pluginId' => $this->getPluginId(),

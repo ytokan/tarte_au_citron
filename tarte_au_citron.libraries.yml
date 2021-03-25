@@ -2,7 +2,7 @@ tarte_au_citron_lib:
   header: true
   version: 0
   js:
-    js/tarte_au_citron/tarteaucitron.js: {preprocess: false, weight: -1000}
+    /libraries/tarteaucitron/tarteaucitron.js: {preprocess: false, weight: -1000}
     js/tarteaucitron_drupal.js: {}
   dependencies:
     - core/jquery

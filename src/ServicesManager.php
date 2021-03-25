@@ -80,6 +80,7 @@ class ServicesManager extends DefaultPluginManager implements ServicesManagerInt
       foreach ($this->getDefinitions() as $id => $definition) {
         $this->optionList[$id] = $definition['title'];
       }
+      asort($this->optionList, SORT_STRING | SORT_FLAG_CASE | SORT_NATURAL);
     }
     return $this->optionList;
   }
@@ -103,7 +104,10 @@ class ServicesManager extends DefaultPluginManager implements ServicesManagerInt
       }
 
       $config = !empty($this->config->get('services_settings')[$currentServiceId]) ? $this->config->get('services_settings')[$currentServiceId] : [];
-      $services[$currentServiceId] = $this->createInstance($currentServiceId, ['enabled' => !empty($enabledServices[$currentServiceId]), 'settings' => $config]);
+      $services[$currentServiceId] = $this->createInstance($currentServiceId, [
+        'enabled' => !empty($enabledServices[$currentServiceId]),
+        'settings' => $config
+      ]);
     }
     return $services;
   }
@@ -111,7 +115,7 @@ class ServicesManager extends DefaultPluginManager implements ServicesManagerInt
   /**
    * Get the list of available services in tarteaucitron.services.js.
    *
-   * @return []
+   * @return array
    *   The array of js services available.
    */
   public function getJsServices() {
@@ -122,7 +126,6 @@ class ServicesManager extends DefaultPluginManager implements ServicesManagerInt
       $content_json_path = $relative_path . '/js/tarte_au_citron/tarteaucitron.services.js';
       $content_json = file_get_contents($content_json_path);
       preg_match_all('/tarteaucitron\.services\.([^\s]+)/i', $content_json, $matches);
-
 
       $data_cached = $matches[1];
       sort($data_cached);

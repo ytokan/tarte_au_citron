@@ -8,4 +8,4 @@ libraries:
     - tarte_au_citron/tarte_au_citron
 
 'interface translation project': tarte_au_citron
-'interface translation server pattern': modules/custom/tarte_au_citron/translations/tarte_au_citron-%language.po
+'interface translation server pattern': modules/custom/%project/translations/%project.%language.po

@@ -29,7 +29,7 @@ interface ServicesManagerInterface {
   /**
    * Get the list of available services in tarteaucitron.services.js.
    *
-   * @return []
+   * @return array
    *   The array of js services available.
    */
   public function getJsServices();

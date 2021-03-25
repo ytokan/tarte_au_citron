@@ -21,7 +21,7 @@ class OEmbedDeriver extends DeriverBase implements ContainerDeriverInterface {
   /**
    * The media source manager plugin.
    *
-   * @var PluginManagerInterface
+   * @var \Drupal\Component\Plugin\PluginManagerInterface
    */
   protected $mediaSourceManager;
 
@@ -35,10 +35,9 @@ class OEmbedDeriver extends DeriverBase implements ContainerDeriverInterface {
   /**
    * Constructs.
    *
-   * @param PluginManagerInterface $media_source_manager
+   * @param \Drupal\Component\Plugin\PluginManagerInterface $media_source_manager
    *   The media source manager plugin.
-   *
-   * @param PhpTransliteration $transliteration
+   * @param \Drupal\Core\Transliteration\PhpTransliteration $transliteration
    *   The transliteration object.
    */
   public function __construct(PluginManagerInterface $media_source_manager, PhpTransliteration $transliteration) {
@@ -55,13 +54,14 @@ class OEmbedDeriver extends DeriverBase implements ContainerDeriverInterface {
       $container->get('transliteration')
     );
   }
+
   /**
    * {@inheritdoc}
    */
   public function getDerivativeDefinitions($base_plugin_definition) {
     try {
       $videoPlugin = $this->mediaSourceManager->getDefinition('oembed:video');
-      if($videoPlugin) {
+      if ($videoPlugin) {
         foreach ($videoPlugin['providers'] as $currentProvider) {
           $machineName = $this->getMachineName($currentProvider);
           $this->derivatives[$machineName] = [
@@ -87,9 +87,10 @@ class OEmbedDeriver extends DeriverBase implements ContainerDeriverInterface {
    * that so far there is no common service for handling this.
    *
    * @param string $string
+   *   The provider.
    *
    * @return string
-   *
+   *   The machine name.
    * @see \Drupal\Core\Block\BlockBase::getMachineNameSuggestion()
    * @see \Drupal\system\MachineNameController::transliterate()
    */
@@ -101,4 +102,5 @@ class OEmbedDeriver extends DeriverBase implements ContainerDeriverInterface {
 
     return 'drupal_' . $transliterated;
   }
+
 }

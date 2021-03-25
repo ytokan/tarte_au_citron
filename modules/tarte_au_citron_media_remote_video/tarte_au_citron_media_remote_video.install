@@ -5,6 +5,7 @@
  * Provides install, update, and uninstall functions.
  */
 
+use Drupal\media\Entity\MediaType;
 use Drupal\Core\File\FileSystemInterface;
 use Drupal\Core\Url;
 
@@ -14,24 +15,22 @@ use Drupal\Core\Url;
 function tarte_au_citron_media_remote_video_requirements($phase) {
   $requirements = [];
   if ($phase == 'runtime' || $phase == 'update' || $phase == 'install') {
-    $mediaTypes = \Drupal\media\Entity\MediaType::loadMultiple();
+    $mediaTypes = MediaType::loadMultiple();
 
     $found = FALSE;
-    foreach($mediaTypes as $currentMediaType) {
-      if($currentMediaType->getSource()->getPluginId() === 'oembed:video') {
+    foreach ($mediaTypes as $currentMediaType) {
+      if ($currentMediaType->getSource()->getPluginId() === 'oembed:video') {
         $found = TRUE;
         break;
       }
     }
-    if(!$found) {
+    if (!$found) {
       $requirements['tarte_au_citron_media_remote_video_no_provider_remote_video'] = [
         'title' => t('Media type with remote videos provider is missing'),
         'description' => t('At least one media type need to use Remote video provider.'),
         'severity' => REQUIREMENT_ERROR,
       ];
     }
-
-
 
   }
   return $requirements;

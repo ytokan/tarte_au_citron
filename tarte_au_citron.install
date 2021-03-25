@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * @file
+ * Installation file for Tarte au citron module.
+ */
+
+use Drupal\Core\Link;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_requirements().
+ */
+function tarte_au_citron_requirements($phase) {
+  $requirements = [];
+  if ($phase === 'runtime') {
+    if (!file_exists(DRUPAL_ROOT . '/libraries/tarteaucitron/tarteaucitron.js')) {
+      $requirements['tarte_au_citron'] = [
+        'title' => t('Tarte au citron library: Tarte au citron'),
+        'value' => t('Missing'),
+        'description' => t('Download the <a href=":url">Tarte au citron library</a> and copy it to :library', [
+          ':url' => 'https://github.com/AmauriC/tarteaucitron.js',
+          ':library' => DRUPAL_ROOT . '/libraries/tarteaucitron/',
+        ]),
+        'severity' => REQUIREMENT_WARNING,
+      ];
+    }
+    else {
+      $requirements['tarte_au_citron'] = [
+        'title' => t('Tarte au citron library: Tarte au citron'),
+        'value' => t('Installed'),
+        'severity' => REQUIREMENT_OK,
+      ];
+    }
+  }
+
+  return $requirements;
+}

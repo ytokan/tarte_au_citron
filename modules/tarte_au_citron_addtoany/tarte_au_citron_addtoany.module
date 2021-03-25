@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @file
+ * Provides primary Drupal hook implementations.
+ */
+
+/**
+ * Implements hook_library_info_alter().
+ */
+function tarte_au_citron_addtoany_library_info_alter(&$libraries, $extension) {
+  if ($extension === 'addtoany') {
+    unset($libraries['addtoany']['js']['https://static.addtoany.com/menu/page.js']);
+  }
+}

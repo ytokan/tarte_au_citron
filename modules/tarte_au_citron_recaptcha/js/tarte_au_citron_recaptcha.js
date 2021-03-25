@@ -10,7 +10,7 @@
      "use strict";
      tarteaucitron.fallback(['g-recaptcha'], '');
      if(typeof grecaptcha === "undefined") {
-       window.tacRecaptchaOnLoad = tarteaucitron.user.recaptchaOnLoad || function() {
+       window.tacRecaptchaOnLoad = tarteaucitron.user.recaptchaOnLoad || function () {
          var elements = document.getElementsByClassName('g-recaptcha');
          while(elements.length > 0) {
            var item = elements[0];

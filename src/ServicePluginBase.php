@@ -61,10 +61,7 @@ abstract class ServicePluginBase extends PluginBase implements ServicePluginInte
   }
 
   /**
-   * Get the plugin's title, if exists.
-   *
-   * @return string
-   *   The plugin's title or empty string.
+   * {@inheritdoc}
    */
   public function getPluginTitle() {
     $definitions = $this->getPluginDefinition();
@@ -82,12 +79,7 @@ abstract class ServicePluginBase extends PluginBase implements ServicePluginInte
   }
 
   /**
-   * Process js when plugin is added to the dom.
-   *
-   * @param array $page
-   *   The page attachements.
-   * @param array $data
-   *   The javascript data.
+   * {@inheritdoc}
    */
   public function addJs(array &$page, array &$data) {
     if (!empty($this->getLibraryName())) {

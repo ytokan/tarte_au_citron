@@ -3,7 +3,7 @@
     _init: false,
     settings: {},
     settings_alter: {},
-    init: function(tacjs_settings) {
+    init: function (tacjs_settings) {
       if(this._init) {
         return;
       }

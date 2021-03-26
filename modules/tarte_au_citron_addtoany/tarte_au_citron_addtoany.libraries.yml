@@ -3,3 +3,9 @@ addtoany:
   version: 0
   js:
     js/tarte_au_citron_addtoany.js: {}
+
+addtoany_lib:
+  js:
+    https://static.addtoany.com/menu/page.js: { attributes: { async: true }, type: external, minified: true }
+  dependencies:
+    - core/drupal

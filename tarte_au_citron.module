@@ -10,7 +10,7 @@
  */
 function tarte_au_citron_page_attachments_alter(array &$attachments) {
   /**
-   * @var $serviceManager \Drupal\tarte_au_citron\ServicesManagerInterface
+   * @var \Drupal\tarte_au_citron\ServicesManagerInterface $serviceManager
    */
   $serviceManager = \Drupal::getContainer()
     ->get('tarte_au_citron.services_manager');

@@ -6,8 +6,6 @@
  */
 
 use Drupal\media\Entity\MediaType;
-use Drupal\Core\File\FileSystemInterface;
-use Drupal\Core\Url;
 
 /**
  * Implements hook_requirements().

@@ -19,7 +19,7 @@ function tarte_au_citron_addtoany_library_info_alter(&$libraries, $extension) {
  */
 function tarte_au_citron_addtoany_page_attachments(&$page) {
   /**
-   * @var $serviceManager \Drupal\tarte_au_citron\ServicesManagerInterface
+   * @var \Drupal\tarte_au_citron\ServicesManagerInterface $serviceManager
    */
   $serviceManager = \Drupal::getContainer()
     ->get('tarte_au_citron.services_manager');
@@ -27,7 +27,7 @@ function tarte_au_citron_addtoany_page_attachments(&$page) {
     return;
   }
 
-  //If tarte au citron is bypassed, add addtoany js
+  // If tarte au citron is bypassed, add addtoany js.
   $route = \Drupal::routeMatch()->getRouteObject();
   if (!\Drupal::service('router.admin_context')->isAdminRoute($route)) {
     $page['#attached']['library'][] = 'tarte_au_citron_addtoany/addtoany_lib';

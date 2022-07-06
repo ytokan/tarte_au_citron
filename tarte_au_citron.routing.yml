@@ -25,4 +25,3 @@ tarte_au_citron.edit_texts:
     _permission: 'translate tarte au citron'
   options:
     _admin_route: TRUE
-

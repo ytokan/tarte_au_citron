@@ -2,11 +2,8 @@
 
 namespace Drupal\tarte_au_citron_smarttag\Plugin\tarte_au_citron;
 
-use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\google_tag\Entity\ContainerManagerInterface;
 use Drupal\tarte_au_citron\ServicePluginBase;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * A Google Tag Manager service plugin.

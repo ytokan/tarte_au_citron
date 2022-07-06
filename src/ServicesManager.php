@@ -3,7 +3,6 @@
 namespace Drupal\tarte_au_citron;
 
 use Drupal\Component\Plugin\Mapper\MapperInterface;
-use Drupal\Component\Serialization\Json;
 use Drupal\Core\Cache\CacheBackendInterface;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
@@ -106,7 +105,7 @@ class ServicesManager extends DefaultPluginManager implements ServicesManagerInt
       $config = !empty($this->config->get('services_settings')[$currentServiceId]) ? $this->config->get('services_settings')[$currentServiceId] : [];
       $services[$currentServiceId] = $this->createInstance($currentServiceId, [
         'enabled' => !empty($enabledServices[$currentServiceId]),
-        'settings' => $config
+        'settings' => $config,
       ]);
     }
     return $services;

@@ -91,6 +91,7 @@ class OEmbedDeriver extends DeriverBase implements ContainerDeriverInterface {
    *
    * @return string
    *   The machine name.
+   *
    * @see \Drupal\Core\Block\BlockBase::getMachineNameSuggestion()
    * @see \Drupal\system\MachineNameController::transliterate()
    */

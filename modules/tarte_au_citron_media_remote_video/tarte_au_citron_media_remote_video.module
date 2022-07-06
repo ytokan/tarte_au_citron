@@ -11,6 +11,6 @@
 function tarte_au_citron_media_remote_video_field_formatter_info_alter(array &$info) {
   $info['oembed'] = [
     'class' => 'Drupal\tarte_au_citron_media_remote_video\Plugin\Field\FieldFormatter\OEmbedFormatter',
-    'provider' => 'tarte_au_citron_media_remote_video'
+    'provider' => 'tarte_au_citron_media_remote_video',
   ] + $info['oembed'];
 }

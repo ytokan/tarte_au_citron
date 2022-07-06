@@ -2,10 +2,7 @@
 
 namespace Drupal\tarte_au_citron_addtoany\Plugin\tarte_au_citron;
 
-use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Drupal\google_tag\Entity\ContainerManagerInterface;
 use Drupal\tarte_au_citron\ServicePluginBase;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * A AddToAny service plugin.
